@@ -3,6 +3,11 @@
  - [x] Bucket is private
  - [x] Global deployment and cache using CloudFront
 
+##### Getting started
+```
+git clone https://github.com/anandshivam44/secure-static-site.git
+cd secure-static-site
+```
 ##### Save Env Variables
 ```bash
 export STACK_NAME=<STACK NAME>
