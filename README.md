@@ -1,4 +1,4 @@
-## CloudFormation Template Template for a static website on a private s3 bucket and attached to CloudFront
+## CloudFormation Template for a static website on a private s3 bucket and attached to CloudFront
  - [x] Static site hosted on s3 bucket
  - [x] Bucket is private
  - [x] Global deployment and cache using CloudFront
@@ -55,7 +55,7 @@ Empty the bucket before removing CF Stack
 ```bash
 aws s3 rm s3://$BUCKET_NAME --recursive
 ```
-Delete CloudFront Stack
+Delete CloudFormationt Stack
 ```bash
 aws cloudformation delete-stack --stack-name $STACK_NAME
 ```
