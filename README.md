@@ -1,4 +1,4 @@
-# Deploy a static website on a private s3 bucket, attached to CloudFront and using  CloudFormation Template
+## CloudFormation Template Template for a static website on a private s3 bucket and attached to CloudFront
  - [x] Static site hosted on s3 bucket
  - [x] Bucket is private
  - [x] Global deployment and cache using CloudFront
