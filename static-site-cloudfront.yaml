@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Create codepipeline
 Parameters:
-  S3StaticSiteBucket:
+  S3StaticSiteBucketName:
     Type: String
     Description: S3Bucket name for static site hosting
     Default: static-site-575758
@@ -13,19 +13,19 @@ Resources:
   WebSiteDeploymentBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref S3StaticSiteBucket
+      BucketName: !Ref S3StaticSiteBucketName
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: 
-          Fn::Sub: ${S3StaticSiteBucket}-AccessIdentity
+          Fn::Sub: ${S3StaticSiteBucketName}-AccessIdentity
   
   DeploymentBucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
       Bucket: 
-        Ref: S3StaticSiteBucket
+        Ref: S3StaticSiteBucketName
       PolicyDocument:
         Statement:
           - Effect: Allow
@@ -36,7 +36,7 @@ Resources:
             Resource: !Join
               - ''
               - - 'arn:aws:s3:::'
-                - !Ref S3StaticSiteBucket
+                - !Ref S3StaticSiteBucketName
                 - /*
   CloudFront:
     Type: AWS::CloudFront::Distribution
@@ -44,7 +44,7 @@ Resources:
       DistributionConfig: 
         Origins:
           - DomainName: 
-              Fn::Sub: ${S3StaticSiteBucket}.s3.${Region}.amazonaws.com
+              Fn::Sub: ${S3StaticSiteBucketName}.s3.${Region}.amazonaws.com
             Id: S3Origin
             S3OriginConfig:
               OriginAccessIdentity: 
@@ -53,7 +53,7 @@ Resources:
                   - - 'origin-access-identity/cloudfront/'
                     - Ref: cloudfrontoriginaccessidentity
         Comment: 
-          Fn::Sub: '${S3StaticSiteBucket}'
+          Fn::Sub: '${S3StaticSiteBucketName}'
         DefaultRootObject: index.html
         Enabled: True
         DefaultCacheBehavior:
