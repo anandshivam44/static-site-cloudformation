@@ -44,7 +44,7 @@ Resources:
       DistributionConfig: 
         Origins:
           - DomainName: 
-              Fn::Sub: ${S3StaticSiteBucket}.s3.eu-west-1.amazonaws.com
+              Fn::Sub: ${S3StaticSiteBucket}.s3.${Region}.amazonaws.com
             Id: S3Origin
             S3OriginConfig:
               OriginAccessIdentity: 
