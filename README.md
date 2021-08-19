@@ -3,6 +3,9 @@
  - [x] Bucket is private
  - [x] Global deployment and cache using CloudFront
 
+#### Pre requisites
+1. AWS Account
+2. You need to have AWS CLI configured if you are using AWS CLI (optional)
 ##### Getting started
 ```
 git clone https://github.com/anandshivam44/secure-static-site.git
