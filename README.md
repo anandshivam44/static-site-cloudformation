@@ -61,7 +61,7 @@ Once Ready access your site with the url provided by CloudFront
 ##### Cleaning up
 Empty the bucket before removing CF Stack
 ```bash
-aws s3 rm s3://$BUCKET_NAME --recursive
+aws s3 rm s3://$BUCKET_NAME/* --recursive
 ```
 Delete CloudFormationt Stack
 ```bash
