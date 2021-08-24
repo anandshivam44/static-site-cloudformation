@@ -1,7 +1,8 @@
-## CloudFormation Template for a static website on a private s3 bucket and attached to CloudFront
+## AWS CloudFormation Template for a static website on a private AWS s3 bucket and hosted on AWS CloudFront
+### IaaC Examlpe
  - [x] Static site hosted on s3 bucket
  - [x] Bucket is private
- - [x] Global deployment and cache using CloudFront
+ - [x] Global deployment and cache using AWS CloudFront
 
 #### Pre requisites
 1. AWS Account
