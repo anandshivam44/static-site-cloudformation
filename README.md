@@ -49,7 +49,7 @@ Here is one for quick deployment.
 ```
 or I've added some Samples in `StaticSiteExample1` and `StaticSiteExample2`
 
-Copy file/folder to your bucket
+Copy file(s) to your bucket
 ```bash
 aws s3 cp index.html s3://$BUCKET_NAME
 ```
