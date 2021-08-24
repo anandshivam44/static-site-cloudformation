@@ -38,7 +38,6 @@ Here is one for quick deployment.
 
 ###### index.html
 ```html
-<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>My Website Home Page</title>
 </head>
@@ -48,7 +47,9 @@ Here is one for quick deployment.
 </body>
 </html>
 ```
-Copy file to your bucket
+or I've added some Samples in `StaticSiteExample1` and `StaticSiteExample2`
+
+Copy file/folder to your bucket
 ```bash
 aws s3 cp index.html s3://$BUCKET_NAME
 ```
