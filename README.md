@@ -1,8 +1,8 @@
-## AWS CloudFormation Template for a static website on a private AWS s3 bucket and hosted on AWS CloudFront
+## AWS CloudFormation Template for a static website on a private AWS s3 bucket and Global CDN AWS CloudFront
 ### IaaC Examlpe
  - [x] Static site hosted on s3 bucket
  - [x] Bucket is private, no one can DDoS and abuse your bucket. Only CloudFront can access your bucket.
- - [x] Global deployment and cache using AWS CloudFront
+ - [x] Global CDN using AWS CloudFront
 
 #### Pre requisites
 1. AWS Account
@@ -23,7 +23,7 @@ export REGION=us-east-1
 You can use a StackName and Bucket of your choice, Bucket name should be unique.  
 You can choose among AWS Regions of your choice
 
-##### Deploy
+##### Deploy your stack
 Deploy the template using AWS CF Console or use AWS CLI 
 
 ```
@@ -37,7 +37,7 @@ ParameterKey=S3LoggingBucketName,ParameterValue=$LOGGING_BUCKET_NAME
 ##### Copy your website files
 
 Once the Template is deployed on AWS CF which takes around 30 sec - 1 minute
-Copy/Create/Upload your html files to the bucket  
+Upload your html files to the bucket  
 
 This Github repo has 2 examples `StaticSiteExample1` and `StaticSiteExample2`. Both are individual websites. For the sake of demo we will be using `StaticSiteExample1`
 
