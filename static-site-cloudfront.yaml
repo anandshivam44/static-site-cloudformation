@@ -5,15 +5,23 @@ Parameters:
     Type: String
     Description: S3Bucket name for static site hosting
     Default: static-site-575758
+  S3LoggingBucketName:
+    Type: String
+    Description: S3Bucket name for storing logs
+    Default: static-site-bucket-4646464646
   Region:
     Type: String
     Description: Default Region for s3 bucket
-    Default: eu-west-1
+    Default: us-east-1
 Resources:
   WebSiteDeploymentBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref S3StaticSiteBucketName
+  LoggingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3LoggingBucketName
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
@@ -74,6 +82,12 @@ Resources:
         HttpVersion: http2
         ViewerCertificate:
           CloudFrontDefaultCertificate: 'true'
+        Logging:
+          IncludeCookies: 'false'
+          Bucket: 
+            Fn::Sub: ${S3LoggingBucketName}.s3.${Region}.amazonaws.com
+          Prefix: logs
+
 
 Outputs:
   CloudFrontDistributionID:
