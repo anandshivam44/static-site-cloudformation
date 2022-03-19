@@ -30,7 +30,7 @@ Deploy the template using AWS CF Console or use AWS CLI
 aws cloudformation create-stack \
 --stack-name $STACK_NAME \
 --template-body file://static-site-cloudfront.yaml \
---parameters ParameterKey=S3StaticSiteBucketName,ParameterValue=$BUCKET_NAME \
+--parameters ParameterKey=S3StaticSiteBucketName,ParameterValue=$STATIC_SITE_BUCKET_NAME \
 ParameterKey=Region,ParameterValue=$REGION \
 ParameterKey=S3LoggingBucketName,ParameterValue=$LOGGING_BUCKET_NAME
 ```
